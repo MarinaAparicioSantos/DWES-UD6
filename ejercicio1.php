@@ -1,26 +1,25 @@
 <?php
 
+// Clase Persona Estructura
+
 class Persona
 {
-
-
     private $nombre;
-    private $DNI;
+    private $dni;
     private $sexo;
     private $peso;
     private $altura;
 
-
-    function __construct($nombre, $DNI, $sexo, $peso, $altura)
+    public function __construct($nombre, $dni, $sexo, $peso, $altura)
     {
-
-        $this->$nombre = "Erika";
-        $this->$DNI = "74985645A";
-        $this->$sexo = "Mujer";
-        $this->$peso = 65;
-        $this->$altura = 1.50;
+        $this->nombre = $nombre;
+        $this->dni = $dni;
+        $this->sexo = $sexo;
+        $this->peso = $peso;
+        $this->altura = $altura;
     }
 
+    // Getters y Setters (Modificadores)
 
     function getNombre()
     {
@@ -32,14 +31,14 @@ class Persona
         $this->nombre = $nombre;
     }
 
-    function getDNI()
+    function getDni()
     {
-        return $this->DNI;
+        return $this->dni;
     }
 
-    function setDNI($DNI)
+    function setDni($dni)
     {
-        $this->DNI = $DNI;
+        $this->dni = $dni;
     }
 
     function getSexo()
@@ -72,16 +71,38 @@ class Persona
         $this->altura = $altura;
     }
 
-    function mostrar($nombre, $DNI, $sexo, $peso, $altura ){
+    function __toString()
+    {
+        return "nombre: " . $this-> nombre . "dni: " . $this->dni . "sexo: " . $this->sexo . "peso: " . $this->peso . "altura: " .$this->altura;
 
-
-        echo $nombre->getNombre()." ,". $DNI->getDNI()." ,". $sexo->getSexo()." ,". $peso->getPeso()." ,". $altura->getAltura();
     }
+
+    // $humano = new Persona();
+    // $humano = setNombre('Pepito');
+    // $humano = setDni('213SKD');
+    // $humano = setSexo ('H');
+    // $humano = setPeso (70);
+    // $humano = setAltura (175);
+
+
+
+    // Fuera clase -> Mostrar y llamada constructor
+
+    function mostrar () {
+        //echo "nombre: " . $this->$humano.getNombre . $this->$humano.getDni . $this->$humano.getSexo . $this->$humano.getPeso . $this->$humano.getAltura
+        return "nombre: " . $this-> nombre . "dni: " . $this->dni . "sexo: " . $this->sexo . "peso: " . $this->peso . "altura: " .$this->altura;
+    
+    }
+
 }
 
 
-// $people = new Persona();
-// $people->mostrar("jacinta","216566675Y","mujer",40, 1.80 );
-
-
 ?>
+
+<!-- Desarrollar el código PHP necesario para crear una clase de nombre Persona que almacene el nombre, el DNI, el sexo, el peso y la altura.
+Crea un constructor que reciba todos los valores necesario para inicializar el objeto.
+Añade los métodos consultores y modificadores de todos los atributos.
+Crea una función mostrar que muestre una línea con todos los atributos.
+Dentro del archivo, pero fuera de la clase, llama al constructor de la clase y al método mostrar.
+Llama a los métodos modificadores y vuelve a invocar al método mostrar. -->
+
