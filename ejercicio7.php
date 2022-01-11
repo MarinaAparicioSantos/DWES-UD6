@@ -1,17 +1,10 @@
 <?php
 
-
 abstract class FiguraGeometrica
 {
 
     private string $color;
     private string $tipo;
-
-    function __construct($color, $tipo)
-    {
-        $this->color = $color;
-        $this->tipo = $tipo;
-    }
 
     abstract public function Dibuja();
     abstract public function Area();
@@ -22,9 +15,11 @@ class Cuadrado extends FiguraGeometrica
 
     private float $lado;
 
-    function __construct($lado)
+    function __construct($lado, $color)
     {
         $this->lado = $lado;
+        $this->color = $color;
+        $this->tipo = "cuadrado";
     }
 
 
@@ -47,10 +42,12 @@ class Triangulo extends FiguraGeometrica
     private float $base;
     private float $altura;
 
-    function __construct($base, $altura)
+    function __construct($base, $altura, $color)
     {
         $this->base = $base;
         $this->altura = $altura;
+        $this->color = $color;
+        $this->tipo = "triangulo";
     }
 
     public function Dibuja()
@@ -71,9 +68,11 @@ class Circulo extends FiguraGeometrica
 
     private float $radio;
 
-    function __construct($radio)
+    function __construct($radio, $color)
     {
         $this->radio = $radio;
+        $this->color = $color;
+        $this->tipo = "circulo";
     }
 
     public function Dibuja()
@@ -85,17 +84,13 @@ class Circulo extends FiguraGeometrica
     public function Area()
     {
 
-        define("PI", 3.1416);
-
-        return pow(PI * $this->radio, 2);
+        return pow(pi() * $this->radio, 2);
     }
 }
 
-
-
-$cuadrados = new Cuadrado("rojo", "cuadrado", 5);
-$triangulos = new Triangulo("azul", "triangulo", 4, 7);
-$circulos = new Circulo("amarillo", "circulo", 50);
+$cuadrados = new Cuadrado(5, "rojo");
+$triangulos = new Triangulo(4, 7, "azul");
+$circulos = new Circulo(50.0, "amarillo");
 
 $cuadrados->Dibuja();
 
