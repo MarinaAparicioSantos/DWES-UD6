@@ -18,7 +18,7 @@ class Dimensiones
     }
 
 
-    //getter y setter
+    //getter y setter (metodos especiales)
     public function __get($atributo)
     {
         return $this->$atributo;
@@ -35,6 +35,7 @@ class Dimensiones
             }
         } catch (PDOException $e) {
             echo "No puede ser menor que 1 y tiene que ser float.";
+            exit();
         }
     }
 
@@ -47,7 +48,18 @@ class Dimensiones
         echo "alto=" . $this->alto . " ancho= " . $this->ancho . " largo= " . $this->largo;
     }
 
-    // function getAlto()
+    
+
+}
+
+$pruebaa = new Dimensiones(1,2,3);
+
+$pruebaa->__toString();
+
+
+
+
+// function getAlto()
     // {
     //     return $this->alto;
     // }
@@ -78,5 +90,3 @@ class Dimensiones
     // {
     //     $this->largo = $largo;
     // }
-
-}
