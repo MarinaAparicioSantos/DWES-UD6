@@ -1,5 +1,7 @@
 <?php
 
+include_once "class.Vehiculo.php";
+
 class Dos_ruedas extends Vehiculo{
 
     private float $cilindrada;

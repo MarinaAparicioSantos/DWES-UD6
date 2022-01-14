@@ -1,5 +1,6 @@
 <?php
 
+include_once "class.Vehiculo.php";
 class Cuatro_ruedas extends Vehiculo{
 
     private int $numero_puertas;
@@ -20,6 +21,10 @@ class Cuatro_ruedas extends Vehiculo{
 
     public function __set($atributo, $valor)
     {
+        // if(property_exists(get_class(),$color)){
+
+        // }
+
         $this->$atributo = $valor;
     }
 

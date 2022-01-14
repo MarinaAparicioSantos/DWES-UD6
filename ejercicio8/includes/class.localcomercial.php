@@ -1,6 +1,7 @@
 <?php
-
-class LocalComercial extends Local {
+ include_once "class.Dimensiones.php";
+ include_once "class.Local.php";
+class localcomercial extends Local {
 
     private string $razonSocial;
     private string $numeroLicencia;
@@ -14,19 +15,23 @@ class LocalComercial extends Local {
         $this->numeroLicencia = $numeroLicencia;
         }else{
 
-            echo "Error";
+            echo "Error, tiene que ser string";
             die();
         }
     }
 
     function __toString()
     {
-        echo "<p><datos del local></p><p>Razón Social: $this->razonSocial <br></p><p>Número de Licencia: $this->numeroLicencia<br></p>";
+        return "<p><datos del local></p><p>Razón Social: $this->razonSocial <br></p><p>Número de Licencia: $this->numeroLicencia<br></p>";
     }
 
     
 
 }
-$prueba = new LocalComercial("sevilla", "aa",2,2,"sd","23344");
 
-$prueba->__toString();
+ $dimensiones = new Dimensiones(4,5,6);
+ $pruebaa = new localcomercial("sevilla", "aa",2,$dimensiones,"sd","23344");
+
+ $pruebaa->__toString();
+
+?>

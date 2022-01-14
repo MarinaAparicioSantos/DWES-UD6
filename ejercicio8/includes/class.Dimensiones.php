@@ -28,14 +28,15 @@ class Dimensiones
     {
 
         //el constructor llama directamente a los getters y los setters.
-        try {
-            if (is_float($valor) && $valor > 1) {
 
-                $this->$atributo = $valor;
-            }
-        } catch (PDOException $e) {
-            echo "No puede ser menor que 1 y tiene que ser float.";
-            exit();
+        if (is_float($valor) && $valor > 1) {
+
+            $this->$atributo = $valor;
+        } else {
+
+            echo "Tiene que ser float y no puede ser menor que 1";
+            die();
+
         }
     }
 
@@ -45,16 +46,13 @@ class Dimensiones
     function __toString()
     {
 
-        echo "alto=" . $this->alto . " ancho= " . $this->ancho . " largo= " . $this->largo;
+        return "alto=" . $this->alto . " ancho= " . $this->ancho . " largo= " . $this->largo;
     }
-
-    
-
 }
 
-$pruebaa = new Dimensiones(1,2,3);
+$pruebaaa = new Dimensiones(1, 2, 3);
 
-$pruebaa->__toString();
+ $pruebaaa->__toString();
 
 
 

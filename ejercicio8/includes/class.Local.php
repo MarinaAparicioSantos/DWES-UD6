@@ -1,5 +1,5 @@
 <?php
-
+include_once "class.Dimensiones.php";
 class Local
 {
 
@@ -45,7 +45,7 @@ class Local
 
     function __toString()
     {
-        echo "<p>Ciudad: $this->ciudad <br></p><p>Calle:$this->calle<br></p><p>Plantas: 
+        return "<p>Ciudad: $this->ciudad <br></p><p>Calle:$this->calle<br></p><p>Plantas: 
             $this->numeroDePlantas<br></p><p>Dimensiones: $this->dimensiones<br></p>";
     }
 
@@ -56,6 +56,11 @@ class Local
 }
 
 
-$prueba = new Local("sevilla", "aa",2,new Dimensiones(4,5,6));
 
-$prueba->__toString();
+$dimensiones = new Dimensiones(4,5,6);
+
+$prueba = new Local("sevilla", "aa",2,$dimensiones);
+
+  $prueba->__toString();
+
+?>
