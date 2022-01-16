@@ -3,10 +3,10 @@ include_once "class.Dimensiones.php";
 class Local
 {
 
-    private string $ciudad;
-    private string $calle;
-    private int $numeroDePlantas;
-    private Dimensiones $dimensiones;
+    private  $ciudad;
+    private  $calle;
+    private  $numeroDePlantas;
+    private  $dimensiones;
 
 
     function __construct($ciudad, $calle, $numeroDePlantas, $dimensiones)

@@ -4,7 +4,7 @@ include_once "class.Vehiculo.php";
 
 class Dos_ruedas extends Vehiculo{
 
-    private float $cilindrada;
+    private  $cilindrada;
 
     public function __construct($cilindrada, $color, $peso)
     {
@@ -15,7 +15,7 @@ class Dos_ruedas extends Vehiculo{
 
     public function poner_gasolina($litros){
 
-        $kilos = $litros / 1.5;
+        $kilos = $litros * 1.5;
 
         $this->peso = $this->peso + $kilos;
 

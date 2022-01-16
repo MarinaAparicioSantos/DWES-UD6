@@ -3,8 +3,8 @@
  include_once "class.Local.php";
 class localcomercial extends Local {
 
-    private string $razonSocial;
-    private string $numeroLicencia;
+    private  $razonSocial;
+    private  $numeroLicencia;
 
     function __construct( $ciudad, $calle, $numeroDePlantas, $dimensiones, $razonSocial, $numeroLicencia)
     {
@@ -22,7 +22,7 @@ class localcomercial extends Local {
 
     function __toString()
     {
-        return "<p><datos del local></p><p>Razón Social: $this->razonSocial <br></p><p>Número de Licencia: $this->numeroLicencia<br></p>";
+        return parent::__toString() . "<p><datos del local></p><p>Razón Social: $this->razonSocial <br></p><p>Número de Licencia: $this->numeroLicencia<br></p>";
     }
 
     
@@ -32,6 +32,6 @@ class localcomercial extends Local {
  $dimensiones = new Dimensiones(4,5,6);
  $pruebaa = new localcomercial("sevilla", "aa",2,$dimensiones,"sd","23344");
 
- $pruebaa->__toString();
+  $pruebaa->__toString();
 
 ?>

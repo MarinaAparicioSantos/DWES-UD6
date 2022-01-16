@@ -3,8 +3,8 @@
 class Vehiculo
 {
 
-    private string $color;
-    private float $peso;
+    private  $color;
+    private  $peso;
 
 
     public function __construct($color, $peso)

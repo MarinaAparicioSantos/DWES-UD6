@@ -3,7 +3,7 @@
 include_once "class.Vehiculo.php";
 class Cuatro_ruedas extends Vehiculo{
 
-    private int $numero_puertas;
+    private  $numero_puertas;
 
     public function __construct($numero_puertas, $color, $peso)
     {
@@ -14,18 +14,23 @@ class Cuatro_ruedas extends Vehiculo{
 
 
     //getter y setter (metodos especiales)
-    public function __get($atributo)
-    {
-        return $this->$atributo;
+    public function __get($name){
+        if(property_exists(get_class(),$name)){
+            return $this->$name;
+        }else{
+            return parent::__get($name);
+        }
+       
+  
     }
-
-    public function __set($atributo, $valor)
+  
+    public function __set($name, $value)
     {
-        // if(property_exists(get_class(),$color)){
-
-        // }
-
-        $this->$atributo = $valor;
+        if(property_exists(get_class(),$name)){
+            $this->$name = $value;
+        }else{
+            parent::__set($name,$value);
+        }       
     }
 
     public function repintar($color){

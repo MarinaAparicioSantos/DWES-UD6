@@ -4,9 +4,9 @@ class Dimensiones
 {
 
 
-    private float $alto;
-    private float $ancho;
-    private float $largo;
+    private  $alto;
+    private  $ancho;
+    private  $largo;
 
 
     //constructor

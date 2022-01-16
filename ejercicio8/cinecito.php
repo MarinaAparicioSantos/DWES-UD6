@@ -1,17 +1,24 @@
 <?php
 
-include "includes/class.Dimensiones.php";
-include "includes/class.Local.php";
-include "includes/class.localcomercial.php";
-include "includes/class.cine.php";
+/*function __autoload($class)
+{
+   include_once 'includes/class.' . $class . '.php';
+}*/
 
-$cine = [
-    0 => new Cine(4,"Sevilla", "amapola", 2, new Dimensiones(3,4,5), "algo", "221"),
-    1 => new Cine(2,"Jerez", "margarita", 3, new Dimensiones(6,7,8), "nada", "213"),
-    2 => new Cine(1,"Huelva", "olivio", 2, new Dimensiones(9,10,11), "existo", "456")
-];
+spl_autoload_register(function($class){
+    require_once('./includes/class.'.$class.'.php');
+});
 
-var_dump( $cine[1]);
+
+$cine[0]  = new Cine(4,"Sevilla", "amapola", 2, new Dimensiones(3.3,4.3,5.3), "algo", "221");
+$cine[1]  = new Cine(2,"Jerez", "margarita", 3, new Dimensiones(6.3,7.3,8.3), "nada", "213");
+$cine[2]  = new Cine(1,"Huelva", "olivio", 2, new Dimensiones(9.3,10.3,11.3), "existo", "456");
+
+
+foreach ($cine as $cine){
+
+    echo $cine . "<br><br><br>";
+   }
 
 
 // $cinecito = new Cine(4,"Sevilla", "amapola", 2, new Dimensiones(3,4,5), "algo", "221");
@@ -19,9 +26,11 @@ var_dump( $cine[1]);
 
 $clon = clone $cine[1];
 
-$clon = new Cine(2,"Jerez", "margarita", 3, new Dimensiones(12,13,14), "nada", "213");
+$clon->getDimensiones()->alto = 40.;
+$clon->getDimensiones()->ancho = 50.;
+$clon->getDimensiones()->largo = 60.;
 
-var_dump($clon);
+echo $clon;
 
 
 
