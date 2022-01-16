@@ -5,11 +5,11 @@ class Cuatro_ruedas extends Vehiculo{
 
     private  $numero_puertas;
 
-    public function __construct($numero_puertas, $color, $peso)
+    public function __construct($color, $peso, $numero_puertas)
     {
-        $this->numero_puertas = $numero_puertas;
-
+    
         parent::__construct($color, $peso);  
+        $this->numero_puertas = $numero_puertas;
     }
 
 
@@ -40,6 +40,11 @@ class Cuatro_ruedas extends Vehiculo{
 
     }
 
+    public function aniadir_persona($peso_persona)
+    {
+
+        return $this->peso = $this->peso + $peso_persona;
+    }
 
 }
 

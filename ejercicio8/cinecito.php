@@ -15,10 +15,10 @@ $cine[1]  = new Cine(2,"Jerez", "margarita", 3, new Dimensiones(6.3,7.3,8.3), "n
 $cine[2]  = new Cine(1,"Huelva", "olivio", 2, new Dimensiones(9.3,10.3,11.3), "existo", "456");
 
 
-foreach ($cine as $cine){
+/*foreach ($cine as $cine){
 
     echo $cine . "<br><br><br>";
-   }
+}*/
 
 
 // $cinecito = new Cine(4,"Sevilla", "amapola", 2, new Dimensiones(3,4,5), "algo", "221");
@@ -32,7 +32,10 @@ $clon->getDimensiones()->largo = 60.;
 
 echo $clon;
 
+foreach ($cine as $cine){
 
+    echo $cine . "<br><br><br>";
+}
 
 // function __toString(){
 
