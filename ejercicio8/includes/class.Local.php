@@ -1,12 +1,11 @@
 <?php
-include_once "class.Dimensiones.php";
 class Local
 {
 
-    private  $ciudad;
-    private  $calle;
-    private  $numeroDePlantas;
-    private  $dimensiones;
+    private string $ciudad;
+    private string $calle;
+    private int $numeroDePlantas;
+    private Dimensiones $dimensiones;
 
 
     function __construct($ciudad, $calle, $numeroDePlantas, $dimensiones)

@@ -1,7 +1,6 @@
 <?php
 
-include_once "class.Vehiculo.php";
-include_once "class.Cuatro_ruedas.php";
+
 class Coche extends Cuatro_ruedas{
 
     private $numero_cadenas_nieve;
@@ -55,6 +54,8 @@ class Coche extends Cuatro_ruedas{
     public function aniadir_persona($peso_persona)
     {
         $pesoPadre = parent::aniadir_persona($peso_persona);
+        $pesoTotal = $pesoPadre + $peso_persona;
+        parent::setPeso($pesoTotal);
 
         if($pesoPadre >=1500 && $this->numero_cadenas_nieve <=2){
 

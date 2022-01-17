@@ -1,6 +1,8 @@
 <?php
 
-include_once "includes/class.Vehiculo.php";
+spl_autoload_register(function($class){
+    require_once('./includes/class.'.$class.'.php');
+});
 
 $vehiculo = new Vehiculo("rojo", 450);
 

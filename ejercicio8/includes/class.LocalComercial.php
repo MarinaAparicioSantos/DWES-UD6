@@ -1,10 +1,9 @@
 <?php
- include_once "class.Dimensiones.php";
- include_once "class.Local.php";
-class localcomercial extends Local {
 
-    private  $razonSocial;
-    private  $numeroLicencia;
+class LocalComercial extends Local {
+
+    private string $razonSocial;
+    private string $numeroLicencia;
 
     function __construct( $ciudad, $calle, $numeroDePlantas, $dimensiones, $razonSocial, $numeroLicencia)
     {
@@ -30,8 +29,8 @@ class localcomercial extends Local {
 }
 
  $dimensiones = new Dimensiones(4,5,6);
- $pruebaa = new localcomercial("sevilla", "aa",2,$dimensiones,"sd","23344");
+ $pruebaa = new localcomercial("sevilla", "aa",2,$dimensiones, "ss","23344");
 
-  $pruebaa->__toString();
+  echo $pruebaa->__toString();
 
 ?>

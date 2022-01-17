@@ -1,6 +1,5 @@
 <?php
 
-include_once "class.Vehiculo.php";
 class Cuatro_ruedas extends Vehiculo{
 
     private  $numero_puertas;

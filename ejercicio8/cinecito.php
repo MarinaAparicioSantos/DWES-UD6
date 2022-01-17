@@ -9,16 +9,22 @@ spl_autoload_register(function($class){
     require_once('./includes/class.'.$class.'.php');
 });
 
+/*function __autoload($name) {
+    include_once './includes/class.' . $name . '.php';
+ }*/
+
+
 
 $cine[0]  = new Cine(4,"Sevilla", "amapola", 2, new Dimensiones(3.3,4.3,5.3), "algo", "221");
 $cine[1]  = new Cine(2,"Jerez", "margarita", 3, new Dimensiones(6.3,7.3,8.3), "nada", "213");
 $cine[2]  = new Cine(1,"Huelva", "olivio", 2, new Dimensiones(9.3,10.3,11.3), "existo", "456");
 
 
-/*foreach ($cine as $cine){
 
-    echo $cine . "<br><br><br>";
-}*/
+foreach ($cine as $cines){
+
+    echo $cines . "<br><br><br>";
+}
 
 
 // $cinecito = new Cine(4,"Sevilla", "amapola", 2, new Dimensiones(3,4,5), "algo", "221");
@@ -32,10 +38,8 @@ $clon->getDimensiones()->largo = 60.;
 
 echo $clon;
 
-foreach ($cine as $cine){
 
-    echo $cine . "<br><br><br>";
-}
+
 
 // function __toString(){
 

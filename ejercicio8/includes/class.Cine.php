@@ -1,12 +1,10 @@
 <?php
 
-include_once "class.Dimensiones.php";
-include_once "class.Local.php";
-include_once "class.localcomercial.php";
 
-class Cine extends localcomercial{
 
-    private $aforoSala;
+class Cine extends LocalComercial{
+
+    private int $aforoSala;
 
     function __construct($aforoSala, $ciudad, $calle, $numeroDePlantas,
                         $dimensiones, $razonSocial, $numeroLicencia)
