@@ -17,6 +17,7 @@ echo "<br>";
 
 echo $vehiculo->aniadir_persona(60);
 
+echo $vehiculoRojo->__get("peso");
 
 
 

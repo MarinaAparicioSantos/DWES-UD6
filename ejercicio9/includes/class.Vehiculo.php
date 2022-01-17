@@ -23,7 +23,17 @@ abstract class Vehiculo implements IVehiculo
 
     public function __set($atributo, $valor)
     {
-        $this->$atributo = $valor;
+        switch ($atributo) {
+            case 'color':
+                $this->setColor($valor);
+                break;
+            case 'peso':
+                $this->setPeso($valor);
+                break;
+            default:
+                $this->$atributo=$valor;
+                break;
+        }
     }
 
 
@@ -80,12 +90,12 @@ abstract class Vehiculo implements IVehiculo
 
         if(($this->peso /*+ $peso*/) <= 2100){
 
-            $this->peso = $peso;
+            echo $this->peso = $peso;
 
 
         }else{
             echo "El peso total del vehículo tiene que tener tener como máximo 2100 kg.";
-            echo $this->peso;
+            echo $this->peso ;
             die();
             
         }

@@ -7,7 +7,7 @@ spl_autoload_register(function($class){
 
 //dos ruedas
 echo "dos ruedas<br>";
-$dosRuedas = new Dos_ruedas("transparente",1500,0);
+$dosRuedas = new Dos_ruedas("transparente",1550,0);
 
 $dosRuedas->aniadir_persona(70);
 
@@ -20,19 +20,20 @@ echo "<br>";
 echo  $dosRuedas->color;
 echo "<br>";
 echo  $dosRuedas->cilindrada;
+//$dosRuedas->__set("cilindrada",1000);
 echo "<br>";
 
-$dosRuedas->ver_atributo($dosRuedas);
+Vehiculo::ver_atributo($dosRuedas);
 
 //camion
 echo "camion<br>";
 $camion = new Camion("blanco",6000,0,0);
 
 $camion->aniadir_persona(84);
-$camion->color = "azul";
+$camion->repintar("azul");
 $camion->numero_puertas = 2;
 
-$camion->ver_atributo($camion);
+Vehiculo::ver_atributo($camion);
 
 
 ?>

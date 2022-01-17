@@ -46,12 +46,18 @@ class Coche extends Cuatro_ruedas{
 
     public function quitar_cadenas_nieve($num){
 
-        $this->numero_cadenas_nieve = $this->numero_cadenas_nieve - $num;
+        $total =$this->numero_cadenas_nieve - $num;
+        if($total<0){
+            $this->numero_cadenas_nieve=0;
+        }else{
+            $this->numero_cadenas_nieve=$total;
+
+        }
 
         
     }
 
-    public function aniadir_persona($peso_persona)
+   /* public function aniadir_persona($peso_persona)
     {
         $pesoPadre = parent::aniadir_persona($peso_persona);
         $pesoTotal = $pesoPadre + $peso_persona;
@@ -60,6 +66,25 @@ class Coche extends Cuatro_ruedas{
         if($pesoPadre >=1500 && $this->numero_cadenas_nieve <=2){
 
             echo "Atención ponga 4 cadenas para la nieve.";
+        }
+
+        
+    }*/
+
+    public function aniadir_persona($peso_persona)
+    {
+        parent::aniadir_persona($peso_persona);
+        //$pesoTotal = $pesoPadre + $peso_persona;
+        //parent::setPeso($pesoTotal);
+
+        if($this->peso >=1500 && $this->numero_cadenas_nieve <=2){
+
+            echo "Atención ponga 4 cadenas para la nieve.";
+            echo "aaaaaaaaaa";
+        }else{
+
+            echo "fallo";
+            echo "eeeeeeeeeeeeeeee";
         }
 
         
