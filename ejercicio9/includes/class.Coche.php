@@ -73,7 +73,7 @@ class Coche extends Cuatro_ruedas{
 
     public function aniadir_persona($peso_persona)
     {
-        parent::aniadir_persona($peso_persona);
+        parent::aniadir_persona($peso_persona); //mete a persona con el añadir persona de cuatro ruedas al llamarlo
         //$pesoTotal = $pesoPadre + $peso_persona;
         //parent::setPeso($pesoTotal);
 
