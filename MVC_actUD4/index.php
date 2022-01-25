@@ -2,9 +2,9 @@
 
 define ("CONTROLLERS_FOLDER","controllers/");
 
-define ("DEFAULT_CONTROLLER","libros");
+define ("DEFAULT_CONTROLLER","series");
 
-define ("DEFAULT_ACTION","listar");
+define ("DEFAULT_ACTION","listarSeries");
 
 $controller = DEFAULT_CONTROLLER;
 if (!empty ($_GET['controller']))
@@ -15,8 +15,6 @@ $action = DEFAULT_ACTION;
 if (!empty ($_GET['action']))
 $action = $_GET ['action'];
 
-if (!empty ($_GET['mostrarLibros']))
-$action = $_GET ['mostrarLibros'];
 
 
 $controller = CONTROLLERS_FOLDER . $controller . '_controller.php';

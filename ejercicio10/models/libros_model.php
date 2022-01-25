@@ -1,26 +1,44 @@
 <?php
 
-    function getConnection(){
+function getConnection()
+{
 
-        $user='developer';
-        $password = 'developer';
-        return  new PDO('mysql:host=localhost;dbname=biblioteca', $user, $password);
+    $user = 'developer';
+    $password = 'developer';
+    return  new PDO('mysql:host=localhost;dbname=biblioteca', $user, $password);
+}
+
+function getLibro($id)
+{
+
+    $db = getConnection();
+
+    $result = $db->prepare('SELECT titulo, precio FROM libros WHERE id = :id');
+    $result->bindParam(":id", $id);
+    $result->execute();
+    $libros = array();
+    while ($libro = $result->fetch(PDO::FETCH_ASSOC)) {
+        $libros[] = $libro;
     }
 
-    function getLibros($id){
 
-        $db = getConnection();
+    $db = null;
+    return $libros;
+}
 
-        $result = $db->query('SELECT titulo, precio FROM libros WHERE titulo = ?');
-        $result->bindParam("id",$id);
-        $libros = array();
-        while($libro = $result->fetch())
-                $libros[] = $libro;
+function getLibros()
+{
 
-        return $libros;
-                
+    $db = getConnection();
+
+    $result = $db->query('SELECT titulo, precio FROM libros');
+    $libros = array();
+    while ($libro = $result->fetch(PDO::FETCH_ASSOC)) {
+        $libros[] = $libro;
     }
 
-        
-?>
-       
+
+    $db = null;
+    return $libros;
+}
+
