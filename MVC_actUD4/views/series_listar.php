@@ -25,6 +25,9 @@
                 <td><?php echo $serie['autor'] ?></td>
                 <td><?php echo number_format($serie['episodios'],2) ?></td>
                 <td><?php echo $serie['estreno'] ?></td>
+                <td><a href="view.php?id=$id">Detalles</td>
+                <td><a href="edit.php?id=$id">Editar</td>
+                <td><a href="delete.php?id=$id">Borrar</td>
             </tr>
         <?php endforeach; ?>
 

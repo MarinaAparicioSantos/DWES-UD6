@@ -7,21 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/botonera.css">
     <link rel="stylesheet" href="css/form.css">
-    <title>Crea elemento</title>
+    <title>Formulario crear/editar</title>
 </head>
 
 <body>
 
-    
-    <nav>
-        <ul>
-            <li><a href="index.php">Página principal</a></li>
-            <li><a class="active" href="create.php">Nuevo anime</a></li>
-            <li><a href="list.php">Lista de animes</a></li>
-            <li><a href="import.php">Importar animes</a></li>
-        </ul>
-    </nav>
-    <form class="form-register" enctype="multipart/form-data" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
+    <form class="form-register" enctype="multipart/form-data" action="/controllers/series_controller.php" method="POST">
         <h2 class="form-titulo">Nuevo anime:</h2>
         <div class="contenedor-inputs">
             <input type="text" name="titulo" placeholder="titulo" class="input-100" required>
