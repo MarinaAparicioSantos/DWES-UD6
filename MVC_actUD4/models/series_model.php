@@ -5,7 +5,7 @@ function getConnection()
 
     $user = 'developer';
     $password = 'developer';
-    return  new PDO('mysql:host=localhost;dbname=directorioAnime', $user, $password);
+    return  new PDO('mysql:host=localhost;dbname=listadoanime', $user, $password);
 }
 
 
@@ -62,10 +62,10 @@ function insertaElemento($titulo, $autor, $estudio, $episodios, $puntuacion, $es
 {
 
     try {
-        $conexion = new PDO('mysql:host=' . $GLOBALS["servidor"] . ';dbname=' . $GLOBALS["baseDatos"], $GLOBALS["usuario"], $GLOBALS["pass"]);
+        $db = getConnection();
 
 
-        $consulta = $conexion->prepare("INSERT INTO listado (titulo, autor, estudio,
+        $consulta = $db->prepare("INSERT INTO listado (titulo, autor, estudio,
         episodios,puntuacion,estreno,portada) VALUES (?,?,?,?,?,?,?)");
         $consulta->bindParam(1, $titulo);
         $consulta->bindParam(2, $autor);
@@ -75,7 +75,7 @@ function insertaElemento($titulo, $autor, $estudio, $episodios, $puntuacion, $es
         $consulta->bindParam(6, $estreno);
         $consulta->bindParam(7, $portada);
         $consulta->execute();
-        return $conexion->lastInsertId();
+        return $db->lastInsertId();
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
         return false;

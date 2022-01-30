@@ -25,9 +25,10 @@
                 <td><?php echo $serie['autor'] ?></td>
                 <td><?php echo number_format($serie['episodios'],2) ?></td>
                 <td><?php echo $serie['estreno'] ?></td>
-                <td><a href="view.php?id=$id">Detalles</td>
-                <td><a href="edit.php?id=$id">Editar</td>
-                <td><a href="delete.php?id=$id">Borrar</td>
+                <td><a href=index.php?controller=series&action=juegoConcreto&varId=$juego[id]>Detalle</a></td>
+                <td><a href=index.php?controller=videoJuegos&action=mostraForm&varId=$juego[id]>Editar</a></td>
+
+                
             </tr>
         <?php endforeach; ?>
 

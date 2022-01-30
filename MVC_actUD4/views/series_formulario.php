@@ -12,7 +12,19 @@
 
 <body>
 
-    <form class="form-register" enctype="multipart/form-data" action="/controllers/series_controller.php" method="POST">
+
+    <nav>
+        <ul>
+            <li><a href="index.php">Página principal</a></li>
+            <li><a href="index.php?controller=series&action=mostraForm">Nuevo elemento</a></li>
+            <li><a class="active" href="index.php?controller=listarSeries&action=listar">Lista elementos</a></li>
+            <!-- <li><a href="import.php">Importar elementos</a></li>
+                <li><a href="exportar.php">Exportar elementos</a></li> -->
+
+        </ul>
+    </nav>
+
+    <form class="form-register" enctype="multipart/form-data" action="index.php?controller=series&action=aniadirSerie" method="POST">
         <h2 class="form-titulo">Nuevo anime:</h2>
         <div class="contenedor-inputs">
             <input type="text" name="titulo" placeholder="titulo" class="input-100" required>
@@ -21,7 +33,7 @@
             <input type="number" name="episodios" placeholder="episodios" class="input-48" required>
             <input type="number" name="puntuacion" placeholder="puntuacion" class="input-48" required>
             <input type="date" name="estreno" placeholder="estreno" class="input-100" required>
-            <img src="">
+            <img name="portada" width=200px >
             <input type="file" name="portada" accept="image/png, image/jpeg" class="input-100">
             <input type="submit" value="Registrar" class="btn-enviar">
             <div id="errores"></div>
