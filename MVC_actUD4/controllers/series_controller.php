@@ -20,26 +20,25 @@ function listarSerie()
 
 
 
-function mostraForm()
+function Formulario()
 {
     require './models/series_model.php';
-    session_start();
 
     $errorImagen = "";
     $errorEditar = "";
 
-    if (empty($_GET["varId"])) {
-        $resultado["id"] = "";
-        $resultado["Titulo"] = "";
-        $resultado["autor"] = "";
-        $resultado["estudio"] = "";
-        $resultado["episodios"] = "";
-        $resultado["puntuacion"] = "";
-        $resultado["estreno"] = "";
-        $resultado["Imagen"] = "";
+    if (empty($_GET["id"])) {
+        $elemento["id"] = "";
+        $elemento["Titulo"] = "";
+        $elemento["autor"] = "";
+        $elemento["estudio"] = "";
+        $elemento["episodios"] = "";
+        $elemento["puntuacion"] = "";
+        $elemento["estreno"] = "";
+        $elemento["Imagen"] = "";
     } else {
-        $id = $_GET["varId"];
-        $resultado = obtenerElemento($id);
+        $id = $_GET["id"];
+        $elemento = obtenerElemento($id);
     }
     include './views/series_formulario.php';
 }
@@ -55,7 +54,7 @@ function aniadirSerie()
             $id = "";
         } else {
             $id = $_POST["id"];
-            $resultado = obtenerElemento($id);
+            $elemento = obtenerElemento($id);
         }
 
 
@@ -111,14 +110,44 @@ function aniadirSerie()
 
 
         if (empty($_POST["id"])) {
-            $resultado = insertaElemento($titulo, $autor, $estudio, $episodios, $puntuacion, $estreno, $imagen);
-            if ($resultado > 0) {
+            $elemento = insertaElemento($titulo, $autor, $estudio, $episodios, $puntuacion, $estreno, $imagen);
+            if ($elemento > 0) {
                 header("Location: index.php");
             } else {
-                $errorEditar = "Se produjo un error";
+                $errorEditar = "ERROR";
             }
         }
     }
 
     include "./views/series_formulario.php";
+}
+
+function borrar(){
+
+    require "./models/series_model.php";
+
+
+    $series = eliminarElemento($_GET["id"]);
+
+    if($series){
+        echo "Se ha borrado";
+
+        header("Location: index.php?controller=series&action=listarSeries");
+    }else{
+
+        echo "ERROR";
+    }
+   
+
+ 
+}
+
+
+function editar(){
+
+    require "./models/series_model.php";
+
+    
+
+
 }

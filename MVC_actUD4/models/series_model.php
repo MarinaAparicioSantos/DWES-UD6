@@ -5,7 +5,7 @@ function getConnection()
 
     $user = 'developer';
     $password = 'developer';
-    return  new PDO('mysql:host=localhost;dbname=listadoanime', $user, $password);
+    return  new PDO('mysql:host=localhost;dbname=directorioAnime', $user, $password);
 }
 
 
@@ -29,7 +29,7 @@ function obtenerTodos()
         echo "Connection failed: " . $e->getMessage();
         return false;
     }
-    $conexion = null;
+    $db = null;
 }
 
 //read uno
@@ -51,7 +51,7 @@ function obtenerElemento($id)
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
     }
-    $conexion = null;
+    $db = null;
 }
 
 
@@ -63,7 +63,6 @@ function insertaElemento($titulo, $autor, $estudio, $episodios, $puntuacion, $es
 
     try {
         $db = getConnection();
-
 
         $consulta = $db->prepare("INSERT INTO listado (titulo, autor, estudio,
         episodios,puntuacion,estreno,portada) VALUES (?,?,?,?,?,?,?)");
@@ -80,10 +79,53 @@ function insertaElemento($titulo, $autor, $estudio, $episodios, $puntuacion, $es
         echo "Connection failed: " . $e->getMessage();
         return false;
     }
-    $conexion = null;
+    $db = null;
 }
 
 //update
 
+
+
+function editarElemento($id, $titulo, $autor, $estudio, $episodios, $puntuacion, $estreno, $portada)
+{
+
+    try {
+        $db = getConnection();
+
+
+        $consulta = $db->prepare("UPDATE listado SET titulo=:titulo, autor=:autor, estudio=:estudio,
+        episodios=:episodios,puntuacion=:puntuacion,estreno=:estreno,portada=:portada WHERE id=:id");
+
+        $parametros = array(
+            ":id" => $id, ":titulo" => $titulo, ":autor" => $autor, ":estudio" => $estudio, ":episodios" => $episodios,
+            ":puntuacion" => $puntuacion, ":estreno" => $estreno, ":portada" => $portada
+        );
+
+        return $consulta->execute($parametros);
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+        return false;
+    }
+
+    $db = null;
+}
+
 //delete
+
+
+function eliminarElemento($id)
+{
+
+    try {
+        $db = getConnection();
+
+        $consulta = $db->prepare("DELETE FROM listado WHERE id=?");
+        $consulta -> bindParam(1,$id);
+        return $consulta->execute();
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+        return false;
+    }
+    $db = null;
+}
 ?>
