@@ -5,7 +5,7 @@ function getConnection()
 
     $user = 'developer';
     $password = 'developer';
-    return  new PDO('mysql:host=localhost;dbname=directorioAnime', $user, $password);
+    return  new PDO('mysql:host=localhost;dbname=listadoAnime', $user, $password);
 }
 
 
